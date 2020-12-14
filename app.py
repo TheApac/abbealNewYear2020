@@ -15,7 +15,7 @@ def hello():
 	
 @app.route('/exercise')
 def get_exercise():
-    return Response('{"subject":'+subject+'}', status=200, mimetype='application/json')
+    return Response('{"subject":"'+subject+'"}', status=200, mimetype='application/json')
 
 @app.route('/test')
 def get_file():
