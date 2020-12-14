@@ -1,7 +1,9 @@
 from flask import Flask, Response, request
+from flask_cors import CORS
 import base64
 
 app = Flask(__name__)
+CORS(app)
 
 answer = 42
 
