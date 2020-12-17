@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, send_file
 from flask_cors import CORS
 import base64
 
@@ -17,13 +17,14 @@ def hello():
 def get_exercise():
     return Response('{"subject":"'+subject+'"}', status=200, mimetype='application/json')
 
-@app.route('/test')
-def get_file():
-	with open("file.txt", "rb") as file:
-		string = base64.b64encode(file.read())
-		return Response(string, status=200, mimetype='application/json')
-		
+@app.route('/file1')
+def get_file1():
+	return send_file('file.txt', attachment_filename='fullList.txt')
 
+@app.route('/file2')
+def get_file2():
+	return send_file('file.txt', attachment_filename='listWithNumbers.txt')
+		
 @app.route('/answer', methods = ['POST'])
 def submit_answer():
 	data = request.get_json()
