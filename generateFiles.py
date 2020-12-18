@@ -1,5 +1,6 @@
 from random import randint, choice, shuffle
- 
+
+
 class BeeNameGenerator(object):
     VOWELS = (
         (('start', 'middle', 'end'), (
@@ -21,9 +22,10 @@ class BeeNameGenerator(object):
                 (1, ("ck", "eal", "us", "ss")),
         )),
         (('start', 'middle'), ((2, ("br", "dr", "fr", "gr", "ab", "bz")),
-                (1, ("cr", "pr", "sr", "tr", "qu", "wh", "cl", "fl", "gl", "kl",
-                     "ll", "pl", "sl", "str"))
-        )),
+                               (1, ("cr", "pr", "sr", "tr", "qu", "wh", "cl", "fl", "gl", "kl",
+                                    "ll", "pl", "sl", "str"))
+                               )
+         ),
     )
     SYLLABLES_POOL = [[], []]
     for i, group in enumerate((VOWELS, CONSONANTS)):
@@ -35,7 +37,7 @@ class BeeNameGenerator(object):
   
     def get_new_name(self):
         return self.generate_name(self.min_syllable, self.max_syllable)
- 
+
     @classmethod
     def generate_name(cls, min_syllable, max_syllable, base=""):
         length, pool = randint(min_syllable, max_syllable), randint(0, 1)
